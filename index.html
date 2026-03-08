@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo [Nombre]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- Fondo dinámico -->
+    <div class="universo-bg">
+        <div class="estrella estrella-1"></div>
+        <div class="estrella estrella-2"></div>
+        <div class="estrella estrella-3"></div>
+        <div class="nebulosa"></div>
+    </div>
+
+    <!-- Audio -->
+    <div class="audio-float">
+        <button id="btnAudio" class="btn-audio">
+            <svg class="icono icono-musica" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+            <div class="ondas-audio">
+                <span></span><span></span><span></span>
+            </div>
+        </button>
+    </div>
+
+    <audio id="audioFondo" loop>
+        <source src="audio/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pantalla de inicio -->
+    <section id="pantallaInicio" class="pantalla pantalla-activa">
+        <div class="contenedor-inicio">
+            <div class="logo-animado">
+                <div class="circulo-pulso"></div>
+                <div class="circulo-pulso delay-1"></div>
+                <div class="circulo-pulso delay-2"></div>
+                <div class="icono-central">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="titulo-inicio">Bienvenido al universo de <span class="nombre-highlight">[Nombre]</span></h1>
+            <p class="subtitulo-inicio">Un espacio dedicado a mi Flaka</p>
+            <button id="btnEntrar" class="btn-primario">
+                <span>Entrar a tu Universo preciosa</span>
+                <svg class="icono-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Pantalla principal -->
+    <main id="pantallaPrincipal" class="pantalla">
+        
+        <!-- Header -->
+        <header class="header-principal">
+            <div class="avatar-principal">
+                <img src="imagenes/principal.jpg" alt="Foto principal" id="imgPrincipal">
+                <div class="anillo-luz"></div>
+            </div>
+            <h2 class="nombre-principal">[Nombre]</h2>
+            <p class="tagline">Descubre lo increíble</p>
+        </header>
+
+        <!-- Navegación por secciones -->
+        <nav class="nav-secciones">
+            <button class="nav-item activo" data-seccion="galeria">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span>Galería</span>
+            </button>
+            <button class="nav-item" data-seccion="sorpresas">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Sorpresas</span>
+                <span class="badge-nuevo">3</span>
+            </button>
+            <button class="nav-item" data-seccion="esencia">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span>Esencia</span>
+            </button>
+        </nav>
+
+        <!-- Sección Galería -->
+        <section id="seccionGaleria" class="seccion seccion-activa">
+            <div class="galeria-premium">
+                <div class="item-galeria grande" data-index="0">
+                    <img src="imagenes/momento-1.jpg" alt="Momento 1">
+                    <div class="overlay-galeria">
+                        <span class="numero-foto">01</span>
+                        <p class="desc-foto">Momentos únicos</p>
+                    </div>
+                </div>
+                <div class="item-galeria" data-index="1">
+                    <img src="imagenes/momento-2.jpg" alt="Momento 2">
+                    <div class="overlay-galeria">
+                        <span class="numero-foto">02</span>
+                        <p class="desc-foto">Sonrisas eternas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Sorpresas (NUEVA) -->
+        <section id="seccionSorpresas" class="seccion">
+            <div class="maquina-sorpresas">
+                <div class="pantalla-maquina">
+                    <div class="slot-machine" id="slotMachine">
+                        <div class="slot-item activo" data-tipo="mensaje">
+                            <div class="icono-slot">💬</div>
+                            <div class="texto-slot">Mensaje especial</div>
+                        </div>
+                        <div class="slot-item" data-tipo="caracteristica">
+                            <div class="icono-slot">✨</div>
+                            <div class="texto-slot">Característica única</div>
+                        </div>
+                        <div class="slot-item" data-tipo="recuerdo">
+                            <div class="icono-slot">🎁</div>
+                            <div class="texto-slot">Recuerdo compartido</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="btnGenerar" class="btn-generar">
+                    <div class="efecto-ripple"></div>
+                    <span class="texto-btn">Generar sorpresa</span>
+                    <svg class="icono-dado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect>
+                        <line x1="8" y1="8" x2="8" y2="8.01"></line>
+                        <line x1="16" y1="8" x2="16" y2="8.01"></line>
+                        <line x1="8" y1="16" x2="8" y2="16.01"></line>
+                        <line x1="16" y1="16" x2="16" y2="16.01"></line>
+                        <line x1="12" y1="12" x2="12" y2="12.01"></line>
+                    </svg>
+                </button>
+
+                <div id="resultadoSorpresa" class="resultado-sorpresa hidden">
+                    <div class="tarjeta-resultado" id="tarjetaResultado">
+                        <div class="categoria-tag" id="categoriaTag">MENSAJE</div>
+                        <div class="contenido-resultado" id="contenidoResultado"></div>
+                        <div class="decoracion-tarjeta"></div>
+                    </div>
+                    <button id="btnGuardar" class="btn-secundario">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>Guardar esta sorpresa</span>
+                    </button>
+                </div>
+
+                <div class="coleccion-sorpresas" id="coleccionSorpresas">
+                    <h3 class="titulo-coleccion">Tus sorpresas guardadas</h3>
+                    <div class="grid-coleccion" id="gridColeccion"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Esencia -->
+        <section id="seccionEsencia" class="seccion">
+            <div class="grid-esencia">
+                <div class="tarjeta-esencia" data-color="rosa">
+                    <div class="icono-esencia">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Flojera</h3>
+                    <p>Me encanta verte todos los dias con esa flojera</p>
+                    <div class="barra-progreso" data-valor="95"></div>
+                </div>
+                
+                <div class="tarjeta-esencia" data-color="morado">
+                    <div class="icono-esencia">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Selectiva</h3>
+                    <p>Solo convinas con quien quieres </p>
+                    <div class="barra-progreso" data-valor="98"></div>
+                </div>
+
+                <div class="tarjeta-esencia" data-color="azul">
+                    <div class="icono-esencia">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>La arepa/h3>
+                    <p>cuando todos andan hablando dacas la arepa del bolso</p>
+                    <div class="barra-progreso" data-valor="92"></div>
+                </div>
+
+                <div class="tarjeta-esencia" data-color="dorado">
+                    <div class="icono-esencia">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Autenticidad</h3>
+                    <p>Ser única sin filtros, y dime si no</p>
+                    <div class="barra-progreso" data-valor="100"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal imagen -->
+    <div id="modalImagen" class="modal hidden">
+        <button class="btn-cerrar-modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <img src="" alt="Ampliada" id="imgModal">
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
